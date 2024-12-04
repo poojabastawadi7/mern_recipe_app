@@ -4,20 +4,24 @@ import { Home } from './pages/home';
 import {CreateRecipe} from './pages/createRecipe';
 import {Auth} from './pages/auth';
 import {SavedRecipes} from './pages/savedRecipes';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Router>
+      
+      <Navbar />
+
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/' element={<Auth />} />
-          <Route path='/' element={<CreateRecipe />} />
-          <Route path='/' element={<SavedRecipes />} />
+          <Route path='/auth' element={<Auth />} />
+          <Route path='/create-recipe' element={<CreateRecipe />} />
+          <Route path='/saved-recipes' element={<SavedRecipes />} />
 
         </Routes>
       </Router>
-    </div>
+    </>
   );
 }
 
