@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
+import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,9 +15,16 @@ const Register = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
+    try {
+        await axios.post("/auth/register",formData)
+        console.log("Form Submitted", formData);
+
+    } catch (error) {
+        console.error(error);
+        
+    }
   };
 
   return (
