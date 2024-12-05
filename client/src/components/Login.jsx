@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./Login.css"
 
-const Register = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -16,26 +14,14 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
+  
+    console.log("Login Submitted", formData);
   };
 
   return (
-    <div className="register-form">
-      <h2>Register</h2>
+    <div className="login-form">
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Enter your username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -62,28 +48,15 @@ const Register = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="Confirm your password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         <button type="submit" className="submit-button">
-          Register
+          Login
         </button>
       </form>
-      <p className="login-link">
-        Already have an account? <a href="/login">Login here</a>
+      <p className="register-link">
+        Don't have an account? <a href="/register">Register here</a>
       </p>
     </div>
   );
 };
 
-export default Register;
+export default Login;
