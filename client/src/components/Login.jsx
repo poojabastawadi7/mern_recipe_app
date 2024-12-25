@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css"
+import axios from "axios";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +13,17 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    try {
+      const response = await axios.post("/auth/login",formData);
+      console.log(response);
+      
+
+    } catch (error) {
+      console.log(error);
+      
+    }
     console.log("Login Submitted", formData);
   };
 
